@@ -30,6 +30,8 @@ Restricciones:
     - No utilizar métodos de clase
     - No utilizar properties
     - Utilizar Type Hints en todos los métodos y variables
+    
+    
 """
 
 import abc

@@ -1,19 +1,29 @@
-"""Properties"""
-
-
 class Article:
-    """Re-Escribir el ejercicio anterior utilizando una property en vez de un
-    método de instancia.
+    
+    iva = 0.21    
 
-    Restricciones:
-        - Utilizar 3 variables de instancia
-        - Utilizar 1 property
-        - Utilizar 1 variable de clase
-        - Utilizar 1 método de clase
-        - No utilizar métodos de instancia
-        - No utilizar Dataclasses
-        - Utilizar Type Hints en todos los métodos y variables
-    """
+    def init(self, nombre, costo, descuento = 0.00):
+        self.nombre: str = nombre
+        self.costo: float = costo
+        self.descuento: float = descuento
+        
+        
+    @property
+    def precio(self) -> float:
+        subtotal = self.costo - self.costo * self.descuento
+        total_con_iva = subtotal * (1 + self.iva)
+        return round(total_con_iva, 2)    
+    
+    @classmethod
+    def actualizar_iva(cls, iva):
+        cls.iva = iva
+
+
+
+
+
+    
+
 
 
 # NO MODIFICAR - INICIO
