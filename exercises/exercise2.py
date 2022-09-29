@@ -1,18 +1,21 @@
 """Variables de Clase y Métodos de Clase."""
 
 
-class Article:    
+class Article:
 
     def _init_(self, nombre: str, costo: float, *descuento: float) -> None:
-        self.nombre= nombre
+        self.nombre = nombre
         self.costo = costo
         self.descuento = descuento
 
-
-    def calcular_precio(self):  
+    def calcular_precio(self):
+        
+        
+        
+        
+        
 
 # NO MODIFICAR - INICIO
-
 # Test parámetro obligatorio
 try:
     article = Article()

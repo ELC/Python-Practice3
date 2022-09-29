@@ -1,5 +1,8 @@
+"""Properties"""
+
+
 class Article:
-    
+
     iva = 0.21    
 
     def init(self, nombre, costo, descuento = 0.00):
@@ -21,8 +24,6 @@ class Article:
 
 
 
-
-    
 
 
 
@@ -80,5 +81,4 @@ Article.actualizar_iva(0.25)
 
 article = Article(costo=1, nombre="Auto")
 assert article.nombre == "Auto"
-assert article.precio == 1.25
-# NO MODIFICAR - FIN
+assert article.precio == 1.

@@ -1,19 +1,22 @@
+"""DataClasses y Sobrecarga de operadores."""
+
+from __future__ import annotations
 from dataclasses import dataclass
-from pickle import LONG_BINPUT
-from dataclasses import dataclass
-import dataclasses
 from typing import List
+
 
 @dataclass
 class Materia:
-    nombre: str  
-    
+    nombre: str
+
 @dataclass
 class Carrera:
     materias: List[Materia]
-   
-def _len_(self):
-    return len(self.materias)          
+
+    def __len__(self) -> int:
+        return len(self.materias)
+
+
 # NO MODIFICAR - INICIO
 # Test parámetro obligatorio
 try:
@@ -42,4 +45,4 @@ assert (
 )
 
 assert len(ciclo_basico) == 2
-# NO MODIFICAR - FIN    
+# NO MODIFICAR - FIN
