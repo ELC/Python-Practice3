@@ -15,6 +15,29 @@ class Article:
         - Utilizar Type Hints en todos los métodos y variables
     """
 
+    __iva = 0.21
+
+    def __init__(self, nombre, costo, descuento = 0):
+        self.nombre = nombre
+        self.costo = costo 
+        self.descuento = descuento
+
+    @property #Sirve para definir un atributo calculado
+    def precio(self):
+        precio =round(self.costo + (self.costo * self.__iva),2)
+        precio_final = round(precio-(self.descuento * precio),2)
+        return precio_final
+
+    @classmethod  #Defino metodo de clase
+    def actualizar_iva(cls, iva_nuevo): #Metodo de clase usa cls en vez de self
+        cls.__iva = iva_nuevo
+        return cls.__iva
+
+    def calcular_precio(self):
+        precio_iva = round((self.costo * self.__iva) + self.costo,2)
+        precio = round((precio_iva - precio_iva * self.descuento),2)
+        return precio
+
 
 # NO MODIFICAR - INICIO
 # Test parámetro obligatorio
