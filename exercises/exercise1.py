@@ -1,6 +1,7 @@
 """Variables de Instancia y Métodos de instancia."""
 
 from math import pi
+from multiprocessing.heap import Arena
 
 
 class Circle:
@@ -17,6 +18,27 @@ class Circle:
         - No utilizar Properties
         - Utilizar Type Hints en todos los métodos y variables
     """
+    # VARIABLE DE INSTANCIA
+    def __init__(self, radio):
+        self.radio = radio
+
+
+    # 2 metodos de instancia
+
+    def area(self):
+        return round(pi*self.radio**2,2)
+
+
+    def perimetro(self):
+        return round(pi*self.radio*2,2)
+
+
+
+
+    
+
+
+
 
 
 # NO MODIFICAR - INICIO

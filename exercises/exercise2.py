@@ -1,6 +1,7 @@
 """Variables de Clase y Métodos de Clase."""
 
 
+
 class Article:
     """Todos los artículos tienen un nombre y un costo, opcionalmente algunos
     tienen un porcentaje de descuento.
@@ -19,7 +20,36 @@ class Article:
         - No utilizar Dataclasses
         - No utilizar Properties
         - Utilizar Type Hints en todos los métodos y variables
-    """
+    """          
+    __iva = float(0.21)
+
+
+    def __init__(self,nombre,costo,descuento=0):
+        self.nombre = nombre
+        self.costo = costo
+        self.descuento = descuento
+
+    
+    @classmethod
+    def actualizar_iva(cls,nuevoIva):
+        cls.__iva = nuevoIva
+    #metodo de innstancia
+    def calcular_precio(self):
+        precio_iva = round(self.costo + (self.costo * self.__iva),2)
+        precioTotal = round(precio_iva - precio_iva * self.descuento,2)
+        return precioTotal
+        
+    
+    def mostrar(self):
+        print(self.nombre) 
+        #imprimir el costo
+
+ejemplo=Article("Auto",1)
+ejemplo1=Article("moto",3)
+ejemplo.mostrar()
+ejemplo1.mostrar()
+
+
 
 
 # NO MODIFICAR - INICIO
