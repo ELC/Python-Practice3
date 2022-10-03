@@ -1,5 +1,6 @@
 """Variables de Instancia y Métodos de instancia."""
 
+from dataclasses import dataclass
 from math import pi
 
 
@@ -20,6 +21,17 @@ class Circle:
 
 
 # NO MODIFICAR - INICIO
+
+    def __init__(self, radio):
+        self.radio=radio
+
+    def perimetro(self):
+        return round((pi*self.radio)*2,2)
+
+    def area(self):
+        return round(pi*self.radio**2,2)
+
+
 # Test básico
 circle = Circle(1)
 assert circle.radio == 1

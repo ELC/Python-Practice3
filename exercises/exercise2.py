@@ -1,6 +1,9 @@
 """Variables de Clase y Métodos de Clase."""
 
 
+from typing import Optional
+
+
 class Article:
     """Todos los artículos tienen un nombre y un costo, opcionalmente algunos
     tienen un porcentaje de descuento.
@@ -23,7 +26,26 @@ class Article:
 
 
 # NO MODIFICAR - INICIO
+    __iva: float = 0.21
+
+    def __init__(self, nombre, costo, descuento) -> None:
+        self.costo=costo
+        self.nombre=nombre
+        self.descuento=descuento
+        
+    def calcular_precio(self) -> float:
+        return round((self.costo + self.__iva * self.costo) * (self.costo - self.costo * self.descuento), 2)
+
+    @classmethod
+    def actualizar_iva(cls, iva) -> float:
+        cls.__iva = iva
+        
 # Test parámetro obligatorio
+articulo= Article("auto", 1, 0.21)
+print(articulo.calcular_precio())
+print(articulo.actualizar_iva())
+print(articulo.actualizar_iva(0.25))
+
 try:
     article = Article()
     assert False, "No se puede instanciar sin nombre ni costo"

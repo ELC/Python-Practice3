@@ -4,6 +4,8 @@ from dataclasses import dataclass
 from typing import List
 
 
+
+
 """Una carrera tiene varias materias, la "longitud" de una carrera hace
 referencia a cuantas materias tiene.
 
@@ -22,6 +24,32 @@ Restricciones:
     - No utilizar properties
     - Utilizar Type Hints en todos los métodos y variables
 """
+
+@dataclass
+class Materia(): 
+    nombre: str
+
+@dataclass
+class Carrera():
+    materias: List
+    
+    #def __str__(self) -> str:
+    #    return str([str(i) for i in self.materias])
+
+    def __len__(self) -> int:
+        return len(self.materias)
+
+
+
+
+      
+
+matematica = Materia("Matemática")
+
+estadistica = Materia(nombre="Estadística")
+
+obj = Carrera([matematica, estadistica])
+print(obj)
 
 
 # NO MODIFICAR - INICIO
