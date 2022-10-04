@@ -19,10 +19,24 @@ class Article:
         - No utilizar Dataclasses
         - No utilizar Properties
         - Utilizar Type Hints en todos los métodos y variables
+
     """
+    #variable de clase
+    _iva=0.21
+    
+    def __init__(self,nombre,costo,descuento):
+        self.nombre=nombre
+        self.costo=costo
+        self.descuento=descuento
 
+class precio:
+    def __init__(self,iva,Ptotal,dto=0):
+        self.iva="0.21"
+        self.Ptotal="Calcular"
 
-# NO MODIFICAR - INICIO
+def Calcular(precio,iva):
+    calcular= precio*iva
+
 # Test parámetro obligatorio
 try:
     article = Article()
