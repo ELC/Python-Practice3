@@ -52,7 +52,7 @@ class Empleado(Contribuyente):
 @dataclass
 class Monotributista(Contribuyente):
     sueldo:float
-    def calcular_sueldo(self) ->float:
+    def calcular_sueldo(self):
         if self.sueldo < (370000/12):
             return self.sueldo - 2646.22
         elif self.sueldo < (550000/12):
