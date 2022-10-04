@@ -23,6 +23,20 @@ Restricciones:
     - Utilizar Type Hints en todos los métodos y variables
 """
 
+@dataclass
+class Carrera:
+    longitud:list
+
+    def __str__(self):
+        return f"Carrera(materias={self.longitud})"
+
+    def __len__(self):
+        return len(self.longitud)
+
+@dataclass
+class Materia:
+    nombre:str
+
 
 # NO MODIFICAR - INICIO
 # Test parámetro obligatorio

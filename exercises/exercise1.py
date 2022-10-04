@@ -1,6 +1,7 @@
 """Variables de Instancia y Métodos de instancia."""
 
 from math import pi
+from multiprocessing.heap import Arena
 
 
 class Circle:
@@ -17,6 +18,16 @@ class Circle:
         - No utilizar Properties
         - Utilizar Type Hints en todos los métodos y variables
     """
+    circle=1
+    area= pi *circle ** 2
+    perimetro= 2 * pi *circle
+
+    def __init__(self,area,perimetro):#type hints
+
+        self.area="area"
+        self.perimetro="perimetro"
+        print("El area de la circunferencia es : {:.2f}").__format__(area)
+        print("El perimetro de la circunferencia es : {:.2f}").__format__(perimetro)
 
 
 # NO MODIFICAR - INICIO
