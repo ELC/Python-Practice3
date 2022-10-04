@@ -4,7 +4,7 @@ from math import pi
 
 
 class Circle:
-    """Todo círculo tiene un radio y se desea conocer tanto el área como el
+    """Todo cículo tiene un radio y se desea conocer tanto el área como el
     perímetro (longitud de circunferencia).
 
     Reportar los números redondeados a dos decimales
@@ -17,16 +17,15 @@ class Circle:
         - No utilizar Properties
         - Utilizar Type Hints en todos los métodos y variables
     """
-
-    def __init__(self, radio):
+    def __init__(self,radio):
         self.radio = radio
-         
+        
+    
     def perimetro(self):
         return round(2*self.radio*pi,2)
 
     def area(self):
         return round(pi*self.radio**2,2)
-
 
 
 # NO MODIFICAR - INICIO
