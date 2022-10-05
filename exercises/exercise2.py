@@ -1,6 +1,5 @@
 """Variables de Clase y Métodos de Clase."""
 
-
 class Article:
     """Todos los artículos tienen un nombre y un costo, opcionalmente algunos
     tienen un porcentaje de descuento.
@@ -12,15 +11,29 @@ class Article:
     los descuentos si hubiera. Redondear a 2 decimales.
 
     Restricciones:
-        - Utilizar 3 variables de instancia
-        - Utilizar 1 método de instancia
-        - Utilizar 1 variable de clase
-        - Utilizar 1 método de clase
+        - Utilizar 3 variables de instancia *
+        - Utilizar 1 método de instancia *
+        - Utilizar 1 variable de clase *
+        - Utilizar 1 método de clase 
         - No utilizar Dataclasses
         - No utilizar Properties
         - Utilizar Type Hints en todos los métodos y variables
     """
-
+    iva=0.21
+    def __init__(self, nombre, costo, descuento=0):
+        self.nombre=nombre
+        self.costo=costo
+        self.descuento=descuento
+        
+    def calcular_precio(self):
+        precio=round(self.costo + (self.costo*self.iva), 2)
+        precioFinal=round(precio - (self.descuento * precio), 2)
+        return precioFinal
+    @classmethod
+    def actualizar_iva(cls, iva):
+        cls.__iva=iva
+        
+    
 
 # NO MODIFICAR - INICIO
 # Test parámetro obligatorio
