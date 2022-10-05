@@ -1,6 +1,8 @@
 """Variables de Clase y Métodos de Clase."""
 
 
+from cmath import cos
+
 class Article:
     """Todos los artículos tienen un nombre y un costo, opcionalmente algunos
     tienen un porcentaje de descuento.
@@ -21,6 +23,20 @@ class Article:
         - Utilizar Type Hints en todos los métodos y variables
     """
 
+    iva = 0.21
+
+    def __init__(self,nombre,costo,descuento=0):
+        self.nombre=nombre
+        self.costo=costo
+        self.descuento=descuento
+
+    def calcular_precio(self):
+        precioConIva=round((self.costo+(self.costo*self.iva)),2)
+        return round(precioConIva-precioConIva*self.descuento,2)
+
+    @classmethod
+    def actualizar_iva(cls, iva_nuevo):
+        cls.iva=iva_nuevo
 
 # NO MODIFICAR - INICIO
 # Test parámetro obligatorio
