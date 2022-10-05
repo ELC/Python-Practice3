@@ -1,7 +1,7 @@
 """Variables de Instancia y Métodos de instancia."""
 
 from math import pi
-
+import math
 
 class Circle:
     """Todo cículo tiene un radio y se desea conocer tanto el área como el
@@ -17,8 +17,17 @@ class Circle:
         - No utilizar Properties
         - Utilizar Type Hints en todos los métodos y variables
     """
-
-
+    def __init__(self, radio):
+        self.radio=radio
+        
+    def area(self):
+        areaCirculo=round(pi * self.radio ** 2, 2)
+        return areaCirculo
+    
+    def perimetro(self):
+        perimetroCirculo=round(2 * pi * self.radio, 2)
+        return perimetroCirculo
+            
 # NO MODIFICAR - INICIO
 # Test básico
 circle = Circle(1)

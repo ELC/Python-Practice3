@@ -1,0 +1,67 @@
+#Ejercicio 1
+def listaPares(listaNumeros):
+    listaPares=[]
+    for i in listaNumeros:
+        if (i % 2==0):
+            listaPares.append(i)
+    return listaPares
+
+lista=[1,2,3,4,5,6,7,8,9,10]
+#print(listaPares(lista))
+
+#Ejercicio 2
+def cuadradoDiferencia(a,b):
+    return (a-b)*2
+
+#print(cuadradoDiferencia(6,3))
+
+#Ejercicio 3
+
+class Piloto:
+    def init(self,nombre,apellido,edad,estudiosUniversitarios,pais='NA'):
+        self.nombre=nombre
+        self.apellido=apellido
+        self.edad=edad
+        self.estudiosUniversitarios=estudiosUniversitarios
+        self.pais=pais
+
+    def mostrar(self):
+        print(self.nombre)
+        print(self.apellido)
+        print(self.edad)
+        print(self.estudiosUniversitarios)
+        print(self.pais)
+
+    def esMayor(self):
+        if(self.edad>17):
+            return True
+        return False
+
+ejemplo_piloto=Piloto("Juan","Perez",75,False)
+#ejemplo_piloto.mostrar()
+#print(ejemplo_piloto.esMayor())
+
+#TODO PERFECTO!!!!! ??
+class Cohete:
+    def init(self,modelo,piloto,combustibleTotal,consumoPorKm):
+        self.modelo=modelo
+        self.piloto=piloto
+        self.combustibleTotal=combustibleTotal
+        self.consumoPorKm=consumoPorKm
+
+    def mostrar(self):
+        print(self.modelo)
+       # print(self.piloto) #MAL
+        self.piloto.mostrar()
+        print(self.combustibleTotal)
+        print(self.consumoPorKm)
+
+    def calcularFactibilidad(self,distancia):
+        if(self.consumoPorKmint(distancia)<self.combustibleTotal):
+            return True
+        return False
+
+ejemplo_cohete=Cohete("APOLO 1",ejemplo_piloto,16,1)
+ejemplo_cohete.mostrar()
+print("Es factible?")
+print(ejemplo_cohete.calcularFactibilidad("15"))
