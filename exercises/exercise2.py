@@ -4,13 +4,10 @@
 class Article:
     """Todos los artículos tienen un nombre y un costo, opcionalmente algunos
     tienen un porcentaje de descuento.
-
     El IVA es un impuesto que se aplica a todos los productos por igual,
     actualmente es de 21% pero puede cambiar en el futuro.
-
     Para calcular el precio de un artículo, hay que sumar el IVA y luego restar
     los descuentos si hubiera. Redondear a 2 decimales.
-
     Restricciones:
         - Utilizar 3 variables de instancia
         - Utilizar 1 método de instancia
@@ -21,6 +18,22 @@ class Article:
         - Utilizar Type Hints en todos los métodos y variables
     """
 
+    __iva=0.21
+
+    def __init__(self, nombre, costo, descuento=0):
+        self.nombre = nombre
+        self.costo = costo
+        self.descuento = descuento
+    
+
+    def calcular_precio(self):
+        precio = round(self.costo + (self.costo * self.__iva), 2)
+        precio_final = round(precio - (self.descuento * precio), 2)
+        return precio_final
+
+    @classmethod
+    def actualizar_iva(cls,iva):
+        cls.__iva=iva
 
 # NO MODIFICAR - INICIO
 # Test parámetro obligatorio
@@ -49,7 +62,9 @@ assert article.calcular_precio() == 1.21
 
 article = Article("Auto", 1, 0.21)
 assert article.nombre == "Auto"
+print(article.calcular_precio())
 assert article.calcular_precio() == 0.96
+
 
 
 # Test palabra clave
