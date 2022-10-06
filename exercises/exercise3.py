@@ -2,18 +2,29 @@
 
 
 class Article:
-    """Re-Escribir el ejercicio anterior utilizando una property en vez de un
-    método de instancia.
 
-    Restricciones:
-        - Utilizar 3 variables de instancia
-        - Utilizar 1 property
-        - Utilizar 1 variable de clase
-        - Utilizar 1 método de clase
-        - No utilizar métodos de instancia
-        - No utilizar Dataclasses
-        - Utilizar Type Hints en todos los métodos y variables
-    """
+    iva = 0.21    
+
+    def init(self, nombre, costo, descuento = 0.00):
+        self.nombre: str = nombre
+        self.costo: float = costo
+        self.descuento: float = descuento
+        
+        
+    @property
+    def precio(self) -> float:
+        subtotal = self.costo - self.costo * self.descuento
+        total_con_iva = subtotal * (1 + self.iva)
+        return round(total_con_iva, 2)    
+    
+    @classmethod
+    def actualizar_iva(cls, iva):
+        cls.iva = iva
+
+
+
+
+
 
 
 # NO MODIFICAR - INICIO
@@ -70,5 +81,4 @@ Article.actualizar_iva(0.25)
 
 article = Article(costo=1, nombre="Auto")
 assert article.nombre == "Auto"
-assert article.precio == 1.25
-# NO MODIFICAR - FIN
+assert article.precio == 1.

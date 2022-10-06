@@ -1,27 +1,20 @@
 """DataClasses y Sobrecarga de operadores."""
 
+from __future__ import annotations
 from dataclasses import dataclass
 from typing import List
 
 
-"""Una carrera tiene varias materias, la "longitud" de una carrera hace
-referencia a cuantas materias tiene.
+@dataclass
+class Materia:
+    nombre: str
 
-Cada materia tiene un nombre.
+@dataclass
+class Carrera:
+    materias: List[Materia]
 
-Escribir una estructura de clases que refleje lo anterior.
-
-Restricciones:
-    - Utilizar Dataclasses
-    - Utilizar 2 clases
-    - Utilizar 1 variables de instancia en cada clase
-    - Utilizar 1 método mágico
-    - No utilizar variables de clase
-    - No utilizar métodos de clase
-    - No utilizar métodos de instancia
-    - No utilizar properties
-    - Utilizar Type Hints en todos los métodos y variables
-"""
+    def __len__(self) -> int:
+        return len(self.materias)
 
 
 # NO MODIFICAR - INICIO

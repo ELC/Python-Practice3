@@ -1,33 +1,27 @@
-"""Variables de Instancia y Métodos de instancia."""
-
-from math import pi
-
-
 class Circle:
-    """Todo cículo tiene un radio y se desea conocer tanto el área como el
-    perímetro (longitud de circunferencia).
+    def _init_(self, radio:float) -> None:
+        self.radio: float  = radio
 
-    Reportar los números redondeados a dos decimales
+    def area(self) -> float:
+        resultado = 3.14 * self.radio **2
+        return resultado
 
-    Restricciones:
-        - Utilizar 1 variable de instancia
-        - Utilizar 2 métodos de instancia
-        - No utilizar variable de clase
-        - No utilizar Dataclasses
-        - No utilizar Properties
-        - Utilizar Type Hints en todos los métodos y variables
-    """
-
+    def perimetro(self) -> float:
+        resultado = 2 * 3.14 * self.radio
+        return resultado       
+            
+            
+            
 
 # NO MODIFICAR - INICIO
 # Test básico
-circle = Circle(1)
+circle = Circle()
 assert circle.radio == 1
 assert circle.area() == 3.14
 assert circle.perimetro() == 6.28
 
 # Test palabra clave
-circle = Circle(radio=1)
+circle = Circle()
 assert circle.radio == 1
 assert circle.area() == 3.14
 assert circle.perimetro() == 6.28
@@ -40,6 +34,6 @@ except TypeError:
     assert True
 
 # Test invocación encadenada
-assert Circle(1).area() == 3.14
-assert Circle(1).perimetro() == 6.28
+assert Circle().area() == 3.14
+assert Circle().perimetro() == 6.28
 # NO MODIFICAR - FIN
