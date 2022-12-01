@@ -2,25 +2,19 @@
 laboralmente Contribuyentes, sin embargo, existen varios tipos de
 contribuyentes, por ejemplo, el Monotributista y el que es Empleado en relación
 de dependencia. Ambos están dentro del sistema pero pagan diferentes impuestos.
-
 El monotributista tiene que pagar en función de sus ingresos brutos anuales:
     - Si son menores a $370.000, paga $2646,22 mensuales
     - Si son menores a $550.000, paga $2958,95 mensuales
     - Si son menores a $770.000, paga $3382,62 mensuales
     - Si son mayores a $770.000, paga $3988,85 mensuales
-
 En el caso de los empleados en relación de dependencia, ellos pagan un 17% de
 impuestos sobre sus ingresos brutos mensuales.
-
 Inspirado en datos reales: https://www.afip.gob.ar/monotributo/categorias.asp
-
 Escribir una estructura de clases que refleje lo anterior. Para simplificar el
 análisis, todos los montos serán mensuales (dividir los límites del monotributo
 por 12).
-
 Aclaración: Este ejercicio está basado en la realidad pero se realizaron
 múltiples simplificaciones para adecuarlo al contexto del curso.
-
 Restricciones:
     - Utilizar Dataclasses
     - Utilizar 3 clases: 1 abstracta y 2 concretas
@@ -35,12 +29,48 @@ Restricciones:
 import abc
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
+from decimal import Rounded
 from typing import List
+
+
+class Contribuyente(ABC):
+    @abstractmethod
+    def calcular_sueldo(self):
+        pass
+
+@dataclass
+class Empleado(Contribuyente):
+    sueldo:int
+
+    def calcular_sueldo(self):
+        return self.sueldo*0.83
+
+@dataclass
+class Monotributista(Contribuyente):
+    sueldo:float
+
+    def calcular_sueldo(self):
+        sueldo_bruto = self.sueldo*12
+
+        if sueldo_bruto<370000:
+            sueldo_mensual_final=self.sueldo-2646.22
+        elif sueldo_bruto<550000:
+            sueldo_mensual_final=self.sueldo-2958.95
+        elif sueldo_bruto<770000:
+            sueldo_mensual_final=self.sueldo-3382.62
+        elif sueldo_bruto>770000:
+            sueldo_mensual_final=self.sueldo-3988.85
+        return sueldo_mensual_final
+    
 
 
 def calcular_sueldos(contribuyentes: List[Contribuyente]):
     """Data una lista de contribuyentes, devuelve una lista de los sueldos de
     cada uno."""
+    sueldos_vacios=[]
+    for i in contribuyentes:
+        sueldos_vacios.append(i.calcular_sueldo())
+    return sueldos_vacios
 
 
 # NO MODIFICAR - INICIO
